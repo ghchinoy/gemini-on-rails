@@ -1,0 +1,17 @@
+<h1>Gemini on Rails</h1>
+
+<%= form_with url: prompts_path, method: :post, data: { turbo: false } do |form| %>
+  <div>
+    <%= form.label :prompt, "Enter your prompt:" %>
+    <%= form.text_area :prompt, rows: 5, style: "width: 100%;" %>
+  </div>
+
+  <div>
+    <%= form.submit "Generate Response" %>
+  </div>
+<% end %>
+
+<% if @response_text.present? %>
+  <h2>Response:</h2>
+  <pre><%= @response_text %></pre>
+<% end %>
